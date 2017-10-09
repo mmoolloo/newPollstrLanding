@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="static/css/qwery.css"  media="screen,projection"/>
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+       <meta charset="UTF-8">
+      <title>Qwery Ninja User profile</title>
+    </head>
+
+    <body class="">
+
+      <nav class="white">
+        <div class="nav-wrapper">
+          <img src="static/img/qwery.png" class="brand-logo center nav-logo">
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+          </ul>
+        </div>
+      </nav>
+
+
+      <main>
+        <div class="row">
+          <div class="col s12">
+            <div class="card-panel white">
+              <div class="row">
+                <div class="col s12 m3 l4">
+                  <h5 class="">Welcome {{User}}!</h5>
+                  <div class="user-img">
+                    <img src="static/img/userLogo.png" alt="user image" class="responsive-img circle ">
+                  </div>
+                </div>
+                <div class="col s12 m9 l8">
+                  <h5>Service usage:</h5>
+                  <select name="formMonth" onchange="location = this.value;">
+                    <!--insertar con python el número de opciones necesarias según los periodos de facturación hasta el momento. En el campo "value" se pone la dirección del dashboard de ese mes-->
+                    <option value="sep17lux.html" selected>September</option>
+                    <option value="oct17lux.html">October</option>
+                    <option value="nov17lux.html">November</option>
+                  </select>
+                  <label>Period</label>
+
+                  <p class="right-align">Incoming messages: {{incoming}}</p>
+                  <p class="right-align">Outgoing messages: {{outgoing}}</p>
+                  <p class="right-align q-red-text">Total interactions: {{totalInt}}</p>
+                  <p class="center-align">Price per interaction: $1.10 MXN</p>
+                  <p class="right-align">Subtotal: {{sub}}</p>
+                  <p class="right-align">Tax (16%): {{tax}}</p>
+                  <p class="right-align q-red-text">Total: {{total}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <div class="card-panel white">
+              <div id="sentiment"></div>
+            </div>
+          </div>
+          <div class="col s12 m6 l6">
+            <div class="card-panel white">
+              <div id="topics"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l6">
+            <div class="card-panel white">
+              <div id="keywords"></div>
+            </div>
+          </div>
+          <div class="col s12 m12 l6">
+            <div class="card-panel white">
+              <div id="frequency"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="static/js/materialize.min.js"></script>
+      <script type="text/javascript">
+          $(document).ready(function() {
+            $('select').material_select();
+            $(".button-collapse").sideNav();
+            $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrain_width: false, // Does not change width of dropdown to that of the activator
+                hover: true, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: true, // Displays dropdown below the button
+                alignment: 'right' // Displays dropdown with edge aligned to the left of button
+            });
+            $('.parallax').parallax();
+            $('.slider').slider({
+                full_width: true
+            });
+            $('.scrollspy').scrollSpy();
+          });
+      </script>
+      <script type="text/javascript" src="static/js/pie.js"></script>
+      <script type="text/javascript" src="static/js/donut.js"></script>
+      <script type="text/javascript" src="static/js/cardinal.js"></script>
+      <script type="text/javascript" src="static/js/barkeywords.js"></script>
+      <script type="text/javascript" src="static/js/comandos.js"></script>
+
+    </body>
+  </html>
